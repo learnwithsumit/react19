@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Posts from "./components/action-useFormStatus/Posts";
+import Posts from "./components/action-example-1/Posts";
 import Counter from "./components/auto-memo/Counter";
-import InputContainer from "./components/forwardRef/Starter";
+import InputContainer from "./components/forwardRef/ForwardRef";
 import Joke from "./components/use-hook-1/Joke";
 import Message from "./components/use-hook-2/Message";
 import Theme from "./components/use-hook-3/Theme";

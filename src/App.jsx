@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Posts from "./components/action-example-1/Posts";
+import Posts from "./components/action-example-1/Starter";
 import Counter from "./components/auto-memo/Counter";
-import InputContainer from "./components/forwardRef/Starter";
-import Joke from "./components/use-hook-1/Joke";
-import Message from "./components/use-hook-2/Message";
-import Theme from "./components/use-hook-3/Theme";
-import AddToCart from "./components/useFormState/AddToCart";
-import OptimisticMessage from "./components/useOptimistic/Message";
+import InputContainer from "./components/forwardRef/ForwardRef";
+import Joke from "./components/use-hook-1/Starter";
+import Message from "./components/use-hook-2/Starter";
+import Theme from "./components/use-hook-3/Starter";
+import AddToCart from "./components/useFormState/Starter";
+import OptimisticMessage from "./components/useOptimistic/Starter";
 
 export default function App() {
     const [example, setExample] = useState("");
