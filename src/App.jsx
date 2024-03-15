@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Posts from "./components/action-example-1/Starter";
+import Example4 from "./components/action/Starter";
 import Counter from "./components/auto-memo/Counter";
 import InputContainer from "./components/forwardRef/ForwardRef";
-import Joke from "./components/use-hook-1/Starter";
-import Message from "./components/use-hook-2/Starter";
-import Theme from "./components/use-hook-3/Starter";
+import Example3 from "./components/use-hook-context/Starter";
+import Example1 from "./components/use-hook-data-fetching/Starter";
+import Example2 from "./components/use-hook-promise/Starter";
 import AddToCart from "./components/useFormState/Starter";
 import OptimisticMessage from "./components/useOptimistic/Starter";
 
@@ -18,17 +18,17 @@ export default function App() {
     // choose which example to render
     let content;
 
-    if (example === "use-hook-1") {
-        content = <Joke />;
+    if (example === "example-1") {
+        content = <Example1 />;
     }
-    if (example === "use-hook-2") {
-        content = <Message />;
+    if (example === "example-2") {
+        content = <Example2 />;
     }
-    if (example === "use-hook-3") {
-        content = <Theme />;
+    if (example === "example-3") {
+        content = <Example3 />;
     }
-    if (example === "action-1") {
-        content = <Posts />;
+    if (example === "action") {
+        content = <Example4 />;
     }
     if (example === "useFormState") {
         content = (
@@ -62,18 +62,16 @@ export default function App() {
             <div className="mt-10">
                 <select onChange={handleChange}>
                     <option value="">Select example</option>
-                    <option value="use-hook-1">
-                        &quot;use&quot; Hook to fetch data - Example 1
+                    <option value="example-1">
+                        &quot;use&quot; Hook to fetch data
                     </option>
-                    <option value="use-hook-2">
-                        &quot;use&quot; Hook with a promise - Example 2
+                    <option value="example-2">
+                        &quot;use&quot; Hook with promise
                     </option>
-                    <option value="use-hook-3">
-                        &quot;use&quot; Hook with context - Example 3
+                    <option value="example-3">
+                        &quot;use&quot; Hook with context
                     </option>
-                    <option value="action-1">
-                        &quot;Action&quot; - Example
-                    </option>
+                    <option value="action">&quot;Form Action&quot;</option>
                     <option value="useFormState">
                         &quot;useFormState&quot; - Example
                     </option>

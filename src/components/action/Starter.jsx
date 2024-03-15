@@ -1,16 +1,37 @@
+import { useState } from "react";
+
 // PostItem component
-const PostItem = () => {
+const PostItem = ({ post }) => {
     return (
         <div className="bg-emerald-50 border border-gray-200 p-4 my-6 rounded-lg">
-            <h2 className="text-xl font-bold">Post title 1</h2>
-            <p>Post body 1</p>
+            <h2 className="text-xl font-bold">{post.title}</h2>
+            <p>{post.body}</p>
         </div>
     );
 };
 // PostForm component
-const PostForm = () => {
+const PostForm = ({ addPost }) => {
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // delay
+        await new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000);
+        });
+
+        addPost({ title, body });
+    };
+
     return (
-        <form className="bg-white border border-gray-200 rounded px-8 pt-6 pb-8 mb-4">
+        <form
+            onSubmit={handleSubmit}
+            className="bg-white border border-gray-200 rounded px-8 pt-6 pb-8 mb-4"
+        >
             <div className="mb-4">
                 <label
                     className="block text-gray-700 text-sm font-bold mb-2"
@@ -24,6 +45,7 @@ const PostForm = () => {
                     type="text"
                     placeholder="Enter title"
                     name="title"
+                    onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
             <div className="mb-6">
@@ -39,6 +61,7 @@ const PostForm = () => {
                     rows="5"
                     placeholder="Enter body"
                     name="body"
+                    onChange={(e) => setBody(e.target.value)}
                 ></textarea>
             </div>
             <div className="flex items-center justify-between">
@@ -55,10 +78,18 @@ const PostForm = () => {
 
 // Posts component
 export default function Posts() {
+    const [posts, setPosts] = useState([]);
+
+    const addPost = (newPost) => {
+        setPosts((prevPosts) => [...prevPosts, newPost]);
+    };
+
     return (
         <>
-            <PostForm />
-            <PostItem />
+            <PostForm addPost={addPost} />
+            {posts.map((post, index) => (
+                <PostItem key={index} post={post} />
+            ))}
         </>
     );
 }
