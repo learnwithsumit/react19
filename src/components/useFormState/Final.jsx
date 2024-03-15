@@ -1,14 +1,5 @@
 import { useFormState } from "react-dom";
 
-const addToCart = (prevState, formData) => {
-    const itemID = formData.get("itemID");
-    if (itemID === "1") {
-        return "Added to cart";
-    } else {
-        return "Couldn't add to cart: the item is sold out.";
-    }
-};
-
 const AddToCartForm = ({ itemID, itemTitle }) => {
     const [message, formAction] = useFormState(addToCart, null);
 
@@ -28,6 +19,14 @@ const AddToCartForm = ({ itemID, itemTitle }) => {
             <div className="mt-4 text-sm text-gray-700">{message}</div>
         </form>
     );
+};
+
+const addToCart = (prevState, formData) => {
+    if (formData.get("itemID") === "1") {
+        return "Added to cart";
+    } else {
+        return "Out of stock";
+    }
 };
 
 export default AddToCartForm;

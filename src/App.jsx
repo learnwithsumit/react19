@@ -5,8 +5,8 @@ import InputContainer from "./components/forwardRef/ForwardRef";
 import Example3 from "./components/use-hook-context/Starter";
 import Example1 from "./components/use-hook-data-fetching/Starter";
 import Example2 from "./components/use-hook-promise/Starter";
-import AddToCart from "./components/useFormState/Starter";
-import OptimisticMessage from "./components/useOptimistic/Starter";
+import Example6 from "./components/useFormState/Starter";
+import Example7 from "./components/useOptimistic/Starter";
 
 export default function App() {
     const [example, setExample] = useState("");
@@ -33,13 +33,13 @@ export default function App() {
     if (example === "useFormState") {
         content = (
             <>
-                <AddToCart itemID="1" title="Product 1" />
-                <AddToCart itemID="2" title="Product 2" />
+                <Example6 itemID="1" title="Product 1" />
+                <Example6 itemID="2" title="Product 2" />
             </>
         );
     }
     if (example === "useOptimistic") {
-        content = <OptimisticMessage />;
+        content = <Example7 />;
     }
     if (example === "automemo") {
         content = <Counter />;
@@ -72,18 +72,19 @@ export default function App() {
                         &quot;use&quot; Hook with context
                     </option>
                     <option value="action">&quot;Form Action&quot;</option>
+                    <option value="useFormStatus">
+                        &quot;useFormStatus&quot;
+                    </option>
                     <option value="useFormState">
-                        &quot;useFormState&quot; - Example
+                        &quot;useFormState&quot;
                     </option>
                     <option value="useOptimistic">
-                        &quot;useOptimistic&quot; - Example
+                        &quot;useOptimistic&quot;
                     </option>
                     <option value="automemo">
-                        &quot;Auto Memoization&quot; - Example
+                        &quot;Auto Memoization&quot;
                     </option>
-                    <option value="forwardRef">
-                        &quot;forwardRef&quot; - Example
-                    </option>
+                    <option value="forwardRef">&quot;forwardRef&quot;</option>
                 </select>
             </div>
 

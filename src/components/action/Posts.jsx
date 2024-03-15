@@ -2,25 +2,13 @@ import { useState } from "react";
 
 // PostItem component
 const PostItem = ({ post }) => {
-    return post?.title ? (
+    return (
         <div className="bg-emerald-50 border border-gray-200 p-4 my-6 rounded-lg">
             <h2 className="text-xl font-bold">{post.title}</h2>
             <p>{post.body}</p>
         </div>
-    ) : null;
-};
-
-const Button = () => {
-    return (
-        <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-gray-400"
-            type="submit"
-        >
-            Submit
-        </button>
     );
 };
-
 // PostForm component
 const PostForm = ({ addPost }) => {
     const formAction = async (formData) => {
@@ -28,16 +16,10 @@ const PostForm = ({ addPost }) => {
         await new Promise((resolve) => {
             setTimeout(() => {
                 resolve();
-            }, 2000);
+            }, 1000);
         });
 
-        // We have direct access to the form data
-        const newPost = {
-            title: formData.get("title"),
-            body: formData.get("body"),
-        };
-
-        addPost(newPost);
+        addPost({ title: formData.get("title"), body: formData.get("body") });
     };
 
     return (
@@ -76,7 +58,12 @@ const PostForm = ({ addPost }) => {
                 ></textarea>
             </div>
             <div className="flex items-center justify-between">
-                <Button />
+                <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-gray-400"
+                    type="submit"
+                >
+                    Submit
+                </button>
             </div>
         </form>
     );
@@ -87,7 +74,7 @@ export default function Posts() {
     const [posts, setPosts] = useState([]);
 
     const addPost = (newPost) => {
-        setPosts((posts) => [...posts, newPost]);
+        setPosts((prevPosts) => [...prevPosts, newPost]);
     };
 
     return (
