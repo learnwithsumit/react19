@@ -9,7 +9,7 @@ const MessageForm = () => {
             />
             <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-4 rounded focus:outline-none focus:shadow-outline disabled:bg-gray-400"
             >
                 Send
             </button>
