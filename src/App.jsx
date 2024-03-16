@@ -1,12 +1,13 @@
 import { useState } from "react";
-import Example4 from "./components/action/Starter";
+import Example4 from "./components/action/Final";
 import Counter from "./components/auto-memo/Counter";
 import InputContainer from "./components/forwardRef/ForwardRef";
-import Example3 from "./components/use-hook-context/Starter";
-import Example1 from "./components/use-hook-data-fetching/Starter";
-import Example2 from "./components/use-hook-promise/Starter";
-import Example6 from "./components/useFormState/Starter";
-import Example7 from "./components/useOptimistic/Starter";
+import Example3 from "./components/use-hook-context/Final";
+import Example1 from "./components/use-hook-data-fetching/Final";
+import Example2 from "./components/use-hook-promise/Final";
+import Example6 from "./components/useFormState/Final";
+import Example5 from "./components/useFormStatus/Final";
+import Example7 from "./components/useOptimistic/Final";
 
 export default function App() {
     const [example, setExample] = useState("");
@@ -29,6 +30,9 @@ export default function App() {
     }
     if (example === "action") {
         content = <Example4 />;
+    }
+    if (example === "useFormStatus") {
+        content = <Example5 />;
     }
     if (example === "useFormState") {
         content = (
